@@ -1,0 +1,23 @@
+<div class="gecmis-container">
+  <div class="gecmis-baslik">
+    <h3>İşlem Geçmişi</h3>
+    <button class="temizle-btn" (click)="gecmisiTemizle()" *ngIf="gecmisIslemler.length > 0">Temizle</button>
+  </div>
+  
+  <div class="gecmis-liste" *ngIf="gecmisIslemler.length > 0">
+    <div class="gecmis-item" *ngFor="let islem of gecmisIslemler">
+      <div class="islem-detay">
+        <span class="sayi">{{ islem.ilkSayi }}</span>
+        <span class="operator">{{ operatorSemboluGetir(islem.operator) }}</span>
+        <span class="sayi">{{ islem.ikinciSayi }}</span>
+        <span class="esittir">=</span>
+        <span class="sonuc">{{ islem.sonuc | ikiBasamakli }}</span>
+      </div>
+      <div class="islem-tarih">{{ tarihFormati(islem.tarih) }}</div>
+    </div>
+  </div>
+  
+  <div class="bos-gecmis" *ngIf="gecmisIslemler.length === 0">
+    <p>Henüz işlem geçmişi yok.</p>
+  </div>
+</div> 

@@ -1,0 +1,51 @@
+<div class="calculator-container">
+  <div class="calculator" tabindex="0">
+    <div class="calculator-header">
+      <h2>Hesap Makinesi</h2>
+      <small class="keyboard-hint">(Klavye ile kullanılabilir)</small>
+    </div>
+    
+    <div class="display-container">
+      <div class="operation">{{ islemMetni }}</div>
+      <div class="display">{{ ekranDegeri$ | async }}</div>
+    </div>
+    
+    <div class="buttons">
+      <!-- Üst butonlar -->
+      <div class="function-buttons">
+        <button class="btn function-btn" (click)="butonaTiklandi('C')">C</button>
+        <button class="btn function-btn" (click)="butonaTiklandi('/')">/</button>
+        <button class="btn function-btn" (click)="butonaTiklandi('*')">×</button>
+        <button class="btn function-btn" (click)="butonaTiklandi('backspace')">←</button>
+      </div>
+      
+      <!-- Ana sayı ve işlem butonları -->
+      <div class="main-buttons">
+        <!-- 7, 8, 9 -->
+        <button class="btn number-btn" (click)="butonaTiklandi('7')">7</button>
+        <button class="btn number-btn" (click)="butonaTiklandi('8')">8</button>
+        <button class="btn number-btn" (click)="butonaTiklandi('9')">9</button>
+        <button class="btn operator-btn" (click)="butonaTiklandi('-')">-</button>
+        
+        <!-- 4, 5, 6 -->
+        <button class="btn number-btn" (click)="butonaTiklandi('4')">4</button>
+        <button class="btn number-btn" (click)="butonaTiklandi('5')">5</button>
+        <button class="btn number-btn" (click)="butonaTiklandi('6')">6</button>
+        <button class="btn operator-btn" (click)="butonaTiklandi('+')">+</button>
+        
+        <!-- 1, 2, 3 -->
+        <button class="btn number-btn" (click)="butonaTiklandi('1')">1</button>
+        <button class="btn number-btn" (click)="butonaTiklandi('2')">2</button>
+        <button class="btn number-btn" (click)="butonaTiklandi('3')">3</button>
+        <button class="btn equals-btn" rowspan="2" (click)="butonaTiklandi('=')">=</button>
+        
+        <!-- 0, . -->
+        <button class="btn number-btn zero" (click)="butonaTiklandi('0')">0</button>
+        <button class="btn number-btn" (click)="butonaTiklandi('.')">.</button>
+      </div>
+    </div>
+    
+    <!-- İşlem Geçmişi Bileşeni -->
+    <app-gecmis-islemler></app-gecmis-islemler>
+  </div>
+</div> 
